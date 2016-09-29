@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Content Security Policy Code Review</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+            </ol>
+
+            <h1>Content Security Policy</h1>
+
+            <?php if (!$this->cspHeader):?>
+            <div class="alert alert-danger">No Content-Security-Policy header set!</div>
+            <?php else:?>
+            <pre>Content-Security-Policy: <?php echo $this->escapeHtml($this->cspHeader);?></pre>
+            <?php endif;?>
+
+            <?php foreach ($this->userData as $post):?>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><?php echo $post['title'];?></h2>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <?php echo $post['content'];?>
+                    </p>
+                    <a class="btn btn-default btn-lg" href="<?php echo $post['url'];?>">
+                        User-Provided Link
+                    </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+        </script>
+
+        <script type="text/javascript" nonce="5415f15a14cb3901">
+            console.log('Inline JavaScript we actually want to execute is allowed when it matches a nonce in the CSP header.');
+        </script>
+
+        <?php if ($this->includeInlineData):?>
+
+        <?php
+        echo $this->jsonData(
+            'json-data-in-dom',
+            [1 => 'Apples', 2 => 'Oranges', 3 => 'Grapes', 4 => 'Bananas', 5 => 'Blueberries']
+        );
+        ?>
+
+        <script type="text/javascript" src="/js/app.js"></script>
+
+        <?php endif;?>
+    </body>
+</html>

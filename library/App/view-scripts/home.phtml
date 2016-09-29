@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Security Policy Code Review</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Content Security Policy</h1>
+
+    <p>
+        Content Security Policy is a web standard widely supported in modern browsers that offers an additional layer of
+        protection against cross-site scripting attacks.  CSP can help prevent XSS exploitation when you've failed to
+        escape untrusted output properly or consider every vector for code injection.
+    </p>
+
+    <h2>Resources</h2>
+    <ol>
+        <li>
+            <a href="https://www.html5rocks.com/en/tutorials/security/content-security-policy/#inline-code-considered-harmful">
+                HTML5Rocks - An Introduction to Content Security Policy
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=pocsv39pNXA">
+                New Circle Training - Content Security Policy
+            </a>
+        </li>
+    </ol>
+
+    <h2>Demo</h2>
+    <p>
+        The demo page illustrates the effect of a strict Content Security Policy.  You can view the page with no CSP at
+        all (the default and what you're probably used to as web dev) or with a variety of CSP headers that demonstrate
+        the available features.
+    </p>
+
+    <ul class="list-group">
+        <li class="list-group-item"><a href="/no-csp">No Content-Security-Policy header</a></li>
+        <li class="list-group-item"><a href="/basic-csp">Basic header</a></li>
+        <li class="list-group-item"><a href="/including-some-external-resources">With whitelisted external resources</a></li>
+        <li class="list-group-item"><a href="/with-nonce-for-inline-resource">Nonces for inline resources</a></li>
+        <li class="list-group-item"><a href="/inline-script-tags-for-data">Using inline script tags for data</a></li>
+        <li class="list-group-item"><a href="/with-reporting">Reporting</a></li>
+    </ul>
+</div>
+</body>
+</html>

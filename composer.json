@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Model\\": "models",
+            "Command\\": "commands",
+            "App\\": "library/App"
+        }
+    },
+    "require": {
+        "deltasystems/dewdrop": "1.*",
+        "silex/silex": "1.*"
+    }
+}
+

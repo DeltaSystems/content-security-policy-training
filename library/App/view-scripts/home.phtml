@@ -13,11 +13,23 @@
 <div class="container">
     <h1>Content Security Policy</h1>
 
-    <p>
-        Content Security Policy is a web standard widely supported in modern browsers that offers an additional layer of
-        protection against cross-site scripting attacks.  CSP can help prevent XSS exploitation when you've failed to
-        escape untrusted output properly or consider every vector for code injection.
-    </p>
+    <div class="row">
+        <div class="col-sm-9">
+            <p>
+                Content Security Policy is a web standard widely supported in modern browsers that offers an additional layer of
+                protection against cross-site scripting attacks.  CSP can help prevent XSS exploitation when you've failed to
+                escape untrusted output properly or consider every vector for code injection.
+            </p>
+        </div>
+        <div class="col-sm-3">
+            <p>
+                <a class="btn btn-lg btn-default" target="_blank" href="https://github.com/DeltaSystems/content-security-policy-training">
+                    <span class="glyphicon glyphicon-console"></span> Github repo for this demo
+                </a>
+            </p>
+        </div>
+    </div>
+
 
     <h2>Resources</h2>
     <ol>
@@ -39,6 +51,11 @@
         all (the default and what you're probably used to as web dev) or with a variety of CSP headers that demonstrate
         the available features.
     </p>
+
+    <div class="alert alert-info">
+        <span class="glyphicon glyphicon-info-sign"></span>
+        It's probably best to run these demos with Dev Tools open so you can see the CSP violations in the console.
+    </div>
 
     <ul class="list-group">
         <li class="list-group-item"><a href="/no-csp">No Content-Security-Policy header</a></li>
